@@ -25,4 +25,8 @@
     <ProjectReference Include="..\CursoMVC.Utilidades\CursoMVC.Utilidades.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\productos\" />
+  </ItemGroup>
+
 </Project>

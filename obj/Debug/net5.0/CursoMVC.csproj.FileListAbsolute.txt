@@ -452,3 +452,9 @@ C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Views\Shared\_
 C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Views\Shared\_UpdateBack.cshtml.g.cs
 C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categorias\Index.cshtml.g.cs
 C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categorias\Upsert.cshtml.g.cs
+C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Marcas\Index.cshtml.g.cs
+C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Marcas\Upsert.cshtml.g.cs
+C:\Users\Jose Manuel\source\repos\CursoMVC\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Jose Manuel\source\repos\CursoMVC\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Productos\Index.cshtml.g.cs
+C:\Users\Jose Manuel\source\repos\CursoMVC\obj\Debug\net5.0\Razor\Areas\Admin\Views\Productos\Upsert.cshtml.g.cs
