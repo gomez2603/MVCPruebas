@@ -72,6 +72,13 @@ namespace CursoMVC.Areas.Admin.Controllers
             {
                 return Json(new { success = false, message = "Error al Borrar" });
             }
+             //Eliminar Imagen
+            string webRootPath = _hostenvironment.WebRootPath;
+            var imagenPath = Path.Combine(webRootPath, productoDb.ImagenURL.TrimStart('\\'));
+            if (System.IO.File.Exists(imagenPath))
+            {
+                System.IO.File.Delete(imagenPath);
+            }
             _unidadTrabajo.producto.Remover(productoDb);
             _unidadTrabajo.Guardar();
             return Json(new { success = true, message = "Borrado Exitosamente" });
@@ -105,7 +112,7 @@ namespace CursoMVC.Areas.Admin.Controllers
                     {
                         files[0].CopyTo(filesStreams);
                     }
-                    productoVM.Producto.ImagenURL = @"\img\producto\" + filename + extension;
+                    productoVM.Producto.ImagenURL = @"\img\productos\" + filename + extension;
                 }
                 else
                 {
