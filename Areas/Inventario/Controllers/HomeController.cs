@@ -1,4 +1,6 @@
 ﻿
+using CursoMVC.AccesoDatos.Repositorio.IRepositorio;
+using CursoMVC.Modelos;
 using CursoMVC.Modelos.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,15 +16,19 @@ namespace CursoMVC.Areas.Inventario.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnidadTrabajo _unidadTrabajo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IUnidadTrabajo unidadTrabajo)
         {
             _logger = logger;
+            _unidadTrabajo = unidadTrabajo;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Producto> productos = _unidadTrabajo.producto.ObtenerTodos(incluirPropiedades: "Categoria,Marca");
+
+            return View(productos);
         }
 
         public IActionResult Privacy()

@@ -15,7 +15,8 @@
     @if (Model.Producto.Id != 0)
     {
         titulo = "Actualizar Producto";
-<input type="hidden" asp-for="Producto.Id"  />
+        <input type="hidden" asp-for="Producto.Id" />
+        <input type="hidden" asp-for="Producto.ImagenURL" />
     }
     <div class="col-12 border-bottom">
         <h2 class="text-primary">@titulo</h2>
@@ -31,114 +32,130 @@
             </div>
         </div>
     </div>
-        <div class="col-8 pt-4">
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Producto.Descripcion"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Producto.Descripcion" class="form-control" />
-                    <span asp-validation-for="Producto.Descripcion"></span>
-                </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Producto.Descripcion"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Producto.Descripcion" class="form-control" />
+                <span asp-validation-for="Producto.Descripcion"></span>
             </div>
         </div>
-            <div class="col-8 pt-4">
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Producto.Costo"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Producto.Costo" class="form-control" />
-                        <span asp-validation-for="Producto.Costo"></span>
-                    </div>
-
-
-                </div>
+    </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Producto.Costo"></label>
             </div>
-            <div class="col-8 pt-4">
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Producto.Precio"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Producto.Precio" class="form-control" />
-                        <span asp-validation-for="Producto.Precio"></span>
-                    </div>
-                </div>
+            <div class="col-8">
+                <input asp-for="Producto.Costo" class="form-control" />
+                <span asp-validation-for="Producto.Costo"></span>
             </div>
-                    <div class="col-8 pt-4">
-                        <div class="form-group row">
-                            <div class="col-4">
-                                Categoria
-                            </div>
-                            <div class="col-8">
-                                @Html.DropDownListFor(c => c.Producto.CategoriaId, Model.CategoriaLista, "Seleccione",
-                               new
-                               {
-                                        @class = "form-control"
 
-                               })
-                                <span asp-validation-for="Producto.CategoriaId"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 pt-4">
-                        <div class="form-group row">
-                            <div class="col-4">
-                                Marca
-                            </div>
-                            <div class="col-8">
-                                @Html.DropDownListFor(c => c.Producto.MarcaId, Model.MarcaLista, "Seleccione",
-                               new
-                               {
-                                        @class = "form-control"
 
-                               })
-                                <span asp-validation-for="Producto.MarcaId"></span>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Producto.Precio"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Producto.Precio" class="form-control" />
+                <span asp-validation-for="Producto.Precio"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                Categoria
+            </div>
+            <div class="col-8">
+                @Html.DropDownListFor(c => c.Producto.CategoriaId, Model.CategoriaLista, "Seleccione",
+               new
+               {
+                        @class = "form-control"
 
-                 
-                        <div class="col-8 pt-4">
-                            <div class="form-group row">
-                                <div class="col-4">
-                                    Imagen
-                                </div>
-                                <div class="col-8">
-                                    <input type="file" name="files" id="escogerImg" multiple class="form-control" />
-                                    <span asp-validation-for="Producto.CategoriaId"></span>
-                                </div>
-                            </div>
+               })
+                <span asp-validation-for="Producto.CategoriaId"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                Marca
+            </div>
+            <div class="col-8">
+                @Html.DropDownListFor(c => c.Producto.MarcaId, Model.MarcaLista, "Seleccione",
+               new
+               {
+                        @class = "form-control"
 
-                        </div>
+               })
+                <span asp-validation-for="Producto.MarcaId"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                Padre
+            </div>
+            <div class="col-8">
+                @Html.DropDownListFor(c => c.Producto.PadreId, Model.PadreLista, "Seleccione",
+               new
+               {
+                        @class = "form-control"
 
-                    <div class="form-group row my-2">
-                        <div class="col-8 offset-1">
-                            @if (Model.Producto.Id != 0)
-                            {
-                                <partial name="_UpdateBack" model="Model.Producto.Id" />
-                            }
-                            else
-                            {
-                                <div class="row">
-                                    <div class="col">
-                                        <button type="submit" onclick="return validarEntrada()" class="btn btn-primary form-control">Crear</button>
+               })
 
-                                    </div>
-                                    <div class="col">
-                                        <a asp-action="Index" class="btn btn-success form-control">Regresar</a>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-              @if(Model.Producto.Id != 0)
-            {  
-                    <div class="col-3">
-                        <img src ="@Model.Producto.ImagenURL" class="w-100" style="border-radius:5px; border:1px solid black" />
-                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-8 pt-4">
+        <div class="form-group row">
+            <div class="col-4">
+                Imagen
+            </div>
+            <div class="col-8">
+                <input type="file" name="files" id="escogerImg" multiple class="form-control" />
+                <span asp-validation-for="Producto.CategoriaId"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row my-2">
+        <div class="col-8 offset-1">
+            @if (Model.Producto.Id != 0)
+            {
+                <partial name="_UpdateBack" model="Model.Producto.Id" />
             }
+            else
+            {
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" onclick="return validarEntrada()" class="btn btn-primary form-control">Crear</button>
+
+                    </div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-success form-control">Regresar</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @if (Model.Producto.Id != 0)
+    {
+        <div class="col-3">
+            <img src="@Model.Producto.ImagenURL" class="w-100" style="border-radius:5px; border:1px solid black" />
+        </div>
+    }
 </form>
 
 @section Scripts{
