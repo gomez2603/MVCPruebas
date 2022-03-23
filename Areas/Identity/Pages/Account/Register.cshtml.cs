@@ -122,6 +122,7 @@ namespace CursoMVC.Areas.Identity.Pages.Account
                     Direccion = Input.Direccion,
                     Ciudad = Input.Ciudad,
                     Pais = Input.Pais,
+                    PhoneNumber = Input.PhoneNumber,
                     Role = Input.Role
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -179,7 +180,7 @@ namespace CursoMVC.Areas.Identity.Pages.Account
                         else
                         {
                             //Admin registra
-                            return RedirectToAction("Index", "User", new { Area = "Admin" });
+                            return RedirectToAction("Index", "Usuarios", new { Area = "Admin" });
                         }
                       
                     }

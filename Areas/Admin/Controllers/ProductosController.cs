@@ -1,6 +1,8 @@
 ﻿using CursoMVC.AccesoDatos.Repositorio.IRepositorio;
 using CursoMVC.Modelos;
 using CursoMVC.Modelos.ViewModels;
+using CursoMVC.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +13,7 @@ using System.Linq;
 namespace CursoMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.ROLE_ADMIN+","+DS.ROLE_INVENTARIO)]
     public class ProductosController : Controller
     {
 

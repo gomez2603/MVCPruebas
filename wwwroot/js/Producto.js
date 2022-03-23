@@ -32,7 +32,7 @@ function loadDataTable() {
 function Delete(url) {
 
     swal({
-        title: "¿Estas seguro que desea eliminar la Categoria?",
+        title: "¿Estas seguro que desea eliminar el Prodcucto?",
         text: "Este Registro no se podra recuperar",
         icon: "warning",
         buttons: true,

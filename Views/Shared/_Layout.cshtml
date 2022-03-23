@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using CursoMVC.Utilidades
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,24 +23,49 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <div><ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house mx-1"></i>Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa-solid fa-book-open mx-1"></i> Contenido
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Bodegas" asp-action="Index">Bodegas</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Categorias" asp-action="Index">Categorias</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Marcas" asp-action="Index">Marcas</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Productos" asp-action="Index">Productos</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
+                        @if (User.IsInRole(DS.ROLE_ADMIN) || User.IsInRole(DS.ROLE_INVENTARIO))
+                        {
+
+
+
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 <i class="fa-solid fa-book-open mx-1"></i> Contenido
+                             </a>
+                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 @if (User.IsInRole(DS.ROLE_ADMIN))
+                                 {
+                                     <a class="dropdown-item" asp-area="Admin" asp-controller="Bodegas" asp-action="Index">Bodegas</a>
+                                     <a class="dropdown-item" asp-area="Admin" asp-controller="Categorias" asp-action="Index">Categorias</a>
+                                     <a class="dropdown-item" asp-area="Admin" asp-controller="Marcas" asp-action="Index">Marcas</a>
+
+                                 }
+                                 @if (User.IsInRole(DS.ROLE_ADMIN) || User.IsInRole(DS.ROLE_INVENTARIO))
+                                 {
+                                     <a class="dropdown-item" asp-area="Admin" asp-controller="Productos" asp-action="Index">Productos</a>
+                                 }
+
+
+
+
+                             </div>
+                         </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid mx-1"></i> Usuarios
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+
+                                </div>
+                            </li>
+                        }
+
+                    </ul></div>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

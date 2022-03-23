@@ -1,5 +1,7 @@
 ﻿using CursoMVC.AccesoDatos.Repositorio.IRepositorio;
 using CursoMVC.Modelos;
+using CursoMVC.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 namespace CursoMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.ROLE_ADMIN)]
     public class MarcasController : Controller
     {
 
